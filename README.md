@@ -163,9 +163,110 @@ public class P_1027 {
 ```
 
 
+<br>
+<br>
+
+---
 
 
+### 2. 자료형
 
+### == 변수와 자료형 == 
 
+<br>
+
+> 자료형 선언
+
+컴파일언어는 변수를 사용하기 전에 반드시 자료형 선언
+
+__주의__
+1. 자료형 사용하기 전에 반드시 자료형 선언
+2. 자료형은 반드시 한번만 선언
+
+<br>
+
+> 변수 선언과 함께 값 대입하기
+
+```
+int a = 3
+```
+
+<br>
+
+> 변수 선언과 값 대입 분리하기
+
+```
+int a;
+a = 3;
+```
+
+<br>
+
+> 자료형
+
+기본 자료형 : boolean, byte, short ,int, long, float, double, char 
+<br>
+참조 자료형 : 배열, 클래스, 인터페이스
+
+<br>
+
+> 구분 이유?
+
+기본자료형과 참조 자료형의 값 저장 방식이 다르다
+
+<br>
+
+> 메모리 구조
+
+1. 클래스(class) 영역
+2. 정적(static) 영역 -> 변수들이 저장되는 공간
+3. 상수 영역
+4. 메서드(method) 영역 -> 객체들이 저장되는 공간
+
+<br>
+
+> 실제 데이터값의 저장 위치
+
+기본 자료형 : 스택 메모리에 생성된 공간에 실제 변숫값을 저장한다
+참조 자료형 : 실제 데이터값은 힙 메모리에 저장하고, 스택 메모리의 변수공간에는 실제 변숫값이 저장된 힙 메모리의 위칫값을 저장한다.
+
+<br>
+
+부울대수 자료형 - boolean
+<br>
+정수 자료형 - byte, short, int, long 각각 1byte, 2byte, 4byte, 8byte
+
+<br>
+
+> 자동 타입 변환(Auto type casting)
+
+```
+    byte a = 3;
+    short b = 3;
+    int c = 3;
+    long d = 3L;
+    long e = 3;  // 자동 타입 변환 -> __업캐스팅__
+    byte f = 30; // 저장할 수 없는 범위의 정숫값이 입력되면 int 인식 -> 오류 발생
+```
+
+<br>
+
+> 타입 변환(Type casting)
+
+```
+    int value1 = (int)5.3; (int)5.3 = 5
+    long value2 = (long)10;
+    float value3 = (float)5.8;
+    double value4 = (double)16;
+
+    long value5 = 10L;
+    long value6 = 10l;
+    float value7 = 5.8F;
+    float value8 = 5.8f;
+```
+
+> 기본 자료형 간의 연산
+
+CPU 연산 최소 단위가 int이므로 int보다 작은 자료형도 일단 int로 읽어와서 연산 수행
 
 
