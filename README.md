@@ -269,4 +269,29 @@ a = 3;
 
 CPU 연산 최소 단위가 int이므로 int보다 작은 자료형도 일단 int로 읽어와서 연산 수행
 
+<br>
+
+> 같은 기본 자료형 간의 연산 결과
+
+| 연산                        | 결과         |
+|----------------------------|------------|
+| byte 자료형 + byte 자료형     | int 자료형    |
+| short 자료형 + short 자료형   | int 자료형    |
+| int 자료형 + int 자료형       | int 자료형    |
+| long 자료형 + long 자료형     | long 자료형   |
+| float 자료형 + float 자료형   | float 자료형  |
+| double 자료형 + double 자료형 | double 자료형 |
+
+<br>
+
+> 서로 다른 기본 자료형 간 연산 결과
+
+| 연산                        | 결과         |
+|----------------------------|------------|
+| byte 자료형 + short 자료형    | int 자료형   |
+| byte 자료형 + int 자료형      | int 자료형    |
+| short 자료형 + long 자료형     | long 자료형   |
+| int 자료형 + float 자료형     | float 자료형   |
+| long 자료형 + float 자료형   | float 자료형  |
+| float 자료형 + double 자료형 | double 자료형 |
 
