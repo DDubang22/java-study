@@ -340,3 +340,254 @@ CPU 연산 최소 단위가 int이므로 int보다 작은 자료형도 일단 in
 
 
 <br>
+
+### 4. 제어문
+
+### 제어문 : 프로그램의 처리 순서를 바꾸는 것
+
+<br>
+
+> 선택 제어문 : if, switch
+
+<br>
+
+> 반복 제어문 : for, while, do-while
+
+<br>
+
+> 제어 키워드 : break, continue
+
+<br>
+
+### 5. 배열
+
+### 1차원 배열
+
+<br>
+
+> 배열 : 동일한 자료형을 묶어 저장하는 참조 자료형
+
+생성할 때 크기를 지정해야되고, 한 번 크기를 지정하면 절대 변경할 수 없는 특징을 가지고 있다.
+
+<br>
+
+> 배열 생성하기
+
+```
+int[] a;
+double[] a;
+String[] a;
+```
+
+<br>
+
+> 모든 참조 자료형 객체는 힙메모리 생성 힙 메모리에 생성된다
+
+```
+new int[3];
+new String[5];
+```
+
+> 배열 자료형 변수에 객체 대입하기
+
+```
+int[] a = new int[3];
+```
+
+```
+int[] a;
+a = new int[3];
+```
+
+>> 객체에 값 입력하기
+
+index는 0부터 시작한다, 예를 들어 방이 3개면 0,1,2다.
+
+```
+int[] a = new in[3]
+a[0] = 3;
+a[1] = 4;
+a[2] = 5;
+```
+
+<br>
+
+배열의 저장 공간에 값을 대입하거나 읽을 때, 없는 인덱스를 사용하면 예외(Exception) 발생하고 프로그램은 종료된다.
+
+```
+System.out.println(a[2]);  // 5 출력
+System.out.println(a[-1]); // 예외 발생 
+System.out.println(a[3]);  // 예외 발생
+```
+
+<br>
+
+> 배열의 길이
+
+배열 참조 변수.length
+
+<br>
+
+### 2차원 정방 행렬 배열
+
+가로 및 세로 방향의 2차원으로 데이터를 저장하는 배열이 2차원 배열이다.
+
+```
+// 배열의 선언 방법 1
+int[][] array1 = new int[3][4];
+int[][] array2;
+array2 = new int[3][4];
+
+
+// 배열의 선언 방법 2
+int array3[][] = new int[3][4];
+int array4[][];
+array4 = new int[3][4];
+
+
+
+// 배열의 선언 방법 3
+int[] array5[] = new int[3][4];
+int[] array6[];
+array6 = new int[3][4];
+```
+
+<br>
+
+> 배열 객체를 생성하고 값 대입하기
+
+```
+ int[][] a = new int[2][3];
+
+a[0][0] = 1; a[0][1] = 1; a[0][2] = 1;
+a[1][0] = 1; a[1][1] = 1; a[1][2] = 1;
+```
+
+<br>
+
+### 문자열을 저장하는 String
+
+> 객체 생성 방법
+
+```
+String 참조 변수명 = new String("문자열");
+```
+
+```
+// String 객체 생성 1
+String str1 = new String("hello");
+
+// String 객체 생성 2
+String str2 = "안녕하세요";
+```
+
+```
+// 문자열 리터럴에 따른 생성 문자열 객체의 공유
+public class P_1113 {
+    public static void main(String[] args) {
+        String str1 = new String("안녕");
+        String str2 = "안녕";
+        String str3 = "안녕";
+        String str4 = new String("안녕");
+
+        System.out.println(str1 == str2);
+        System.out.println(str2 == str3);
+        System.out.println(str3 == str4);
+        System.out.println(str4 == str1);
+
+        /** 출력 값
+         *  false
+         *  true
+         *  false
+         *  false
+         */
+    }
+}
+```
+
+```
+// 문자열의 '+' 연산자
+public class P_1113 {
+    public static void main(String[] args) {
+        String str1 = "안녕" + "하세요";
+
+        String str2 = "안녕";
+        str2 += "하세요";
+
+        String str3 = "안녕" + 3;
+        String str4 = "안녕" + String.valueOf(3);
+
+        System.out.println("str1 = " + str1);
+        System.out.println("str2 = " + str2);
+        System.out.println("str3 = " + str3);
+        System.out.println("str4 = " + str4);
+
+        /**
+         *  str1 = 안녕하세요
+         *  str2 = 안녕하세요
+         *  str3 = 안녕3
+         *  str4 = 안녕3
+         */
+    }
+}
+```
+
+<br>
+
+> String 클래스의 주요 메서드
+
+| /                   | retrun type | method                                 | explanation                                                                                                      |
+|---------------------|:-----------:|----------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| 문자열 길이         |     int     | length()                               | 문자열 길이                                                                                                      |
+| 문자열 검색         |     char    | charAt(int index)                      | index 위치에서의 문자                                                                                            |
+| 문자열 검색         |     int     | indexOf(int ch)                        | 문자열에 포함된 문자 또는 문자열의 위치를 앞에서부터 검색했을 때 일치하는 인덱스 값 (fromIndex는 검색 시작 위치) |
+| 문자열 검색         |     int     | indexOf(int ch, int fromIndex)         | ``                                                                                                               |
+| 문자열 검색         |     int     | indexOf(String str)                    | ``                                                                                                               |
+| 문자열 검색         |     int     | indexOf(String str, int fromIndex)     | ``                                                                                                               |
+| 문자열 검색         |     int     | lastIndexOf(int ch)                    | 문자열에 포함된 문자 또는 문자열의 위치를 앞에서부터 검색했을 때 일치하는 인덱스 값 (fromIndex는 검색 시작 위치) |
+| 문자열 검색         |     int     | lastIndexOf(int ch, int fromIndex)     | ``                                                                                                               |
+| 문자열 검색         |     int     | lastIndexOf(String str)                | ``                                                                                                               |
+| 문자열 검색         |     int     | lastIndexOf(String str, int fromIndex) | ``                                                                                                               |
+| 문자열 변환 및 검색 |    float    | String.valueOf(boolean b)              | boolean, char, int, long, float, double 값을 문자열로 변환하기 위한 정적 메서드                                  |
+| 문자열 변환 및 검색 |    float    | String.valueOf(char c)                 | ``                                                                                                               |
+| 문자열 변환 및 검색 |    float    | String.valueOf(int i)                  | ``                                                                                                               |
+| 문자열 변환 및 검색 |    float    | String.valueOf(long l)                 | ``                                                                                                               |
+| 문자열 변환 및 검색 |    float    | String.valueOf(float f)                | ``                                                                                                               |
+| 문자열 변환 및 검색 |    float    | String.valueOf(double d)               | ``                                                                                                               |
+| 문자열 변환 및 검색 |    double   | concat(String str)                     | 문자열 연결(String 객체의 + 연산과 동일)                                                                         |
+| 문자열 배열 변환    |    char[]   | toCharArray()                          | 문자열을 char[]로 변환                                                                                           |
+
+<br>
+
+• length() : 문자열의 길이를 리턴한다 <br>
+• charAt() : 문자열에서 특정 인덱스를 위치해 있는 문자를 알아 낸다. <br>
+• indexOf() : 문자열에서 특정 문자나 특정 문자열을 앞에서부터 찾아 위칫값을 알아낸다. <br>
+• lastIndexOf() : 문자열에서 특정 문자나 특정 문자열을 뒤에서부터 찾아 위칫값을 알아낸다. <br>
+• String.valueOf() : 기본 자료형을 문자열로 바꾸는 정적 메서드다. <br>
+• concat() : 2개의 문자열을 연결한다. + 연산자와 동일한 기능을 수행한다. <br>
+• toCharArray() : 문자열을 char배열로 변환한다. 자바 입출력 과정에서 주로 사용한다. <br>
+
+<br>
+
+| /                | return type | method                                                            | explanation                                                                                                                  |
+|------------------|-------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| 문자열 수정      | String      | toLowerCase()                                                     | 영문 문자를 모두 소문자로 변환                                                                                               |
+| 문자열 수정      | String      | toUpperCase()                                                     | oldChar 문자열을 newChar 문자열로 대체한 문자열 생성                                                                         |
+| 문자열 수정      | String      | replace(char oldChar, char newChar)                               | beginIndex부터 끝까지의 문자열 생성                                                                                          |
+| 문자열 수정      | String      | substring(int beginIndex) substring(int beginIndex, int endIndex) | beginIndex부터 endIndex - 1 위치까지의 문자열 생성                                                                           |
+| 문자열 수정      | String[]    | split(String regex) split(String,regex, int limit)                | regex 기준으로 문자열을 분할한 문자열 배열을 생성(regex 구분 기호는 "\|" 기호로 여러 개 사용 가능, limit는 분할의 최대 개수) |
+| 문자열 수정      | String      | trim()                                                            | 문자열의 앞뒤 공백 제거                                                                                                      |
+| 문자열 내용 비교 | boolean     | equals()                                                          | 문자열의 실제 내용 비교 (==는 메모리 번지(stack) 비교)                                                                       |
+| 문자열 내용 비교 | boolean     | equalsIgnoreCase(String anotherString)                            | 대소문자 구분 없이 문자열의 실제 내용 비교                                                                                   |
+
+<br>
+• toLowerCase(): 영문 문자를 모두 소문자로 변환한다. <br>
+• toUpperCase(): 영문 문자를 모두 대문자로 변환한다. <br>
+• replace(): 일부 문자열을 다른 문자열로 대체한다. <br>
+• substring(): 문자열의 일부만을 포함하는 새로운 문자열 객체를 생성한다. <br>
+• split(): 특정 기호를 기준으로 문자열을 분리한다. <br>
+• trim(): 문자열의 좌우 공백을 제거한다. <br>
+• equals(): 두 문자열의 위칫값이 아닌 실제 데이터값을 비교한다. 이때 대소문자를 구분한다. <br>
+• equalsIgnoreCase(): 두 문자열의 위칫값이 아닌 실제 데이터값을 비교한다. <br>
+
+
