@@ -569,7 +569,7 @@ public class P_1113 {
 
 <br>
 
-| ////                | return type | method                                                            | explanation                                                                                                                  |
+| ////               | return type | method                                                            | explanation                                                                                                                  |
 |------------------|-------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 문자열 수정      | String      | toLowerCase()                                                     | 영문 문자를 모두 소문자로 변환                                                                                               |
 | 문자열 수정      | String      | toUpperCase()                                                     | oldChar 문자열을 newChar 문자열로 대체한 문자열 생성                                                                         |
@@ -577,8 +577,8 @@ public class P_1113 {
 | 문자열 수정      | String      | substring(int beginIndex) substring(int beginIndex, int endIndex) | beginIndex부터 endIndex - 1 위치까지의 문자열 생성                                                                           |
 | 문자열 수정      | String[]    | split(String regex) split(String,regex, int limit)                | regex 기준으로 문자열을 분할한 문자열 배열을 생성(regex 구분 기호는 "\|" 기호로 여러 개 사용 가능, limit는 분할의 최대 개수) |
 | 문자열 수정      | String      | trim()                                                            | 문자열의 앞뒤 공백 제거                                                                                                      |
-| 문자열 내용<br>비교 | boolean     | equals()                                                          | 문자열의 실제 내용 비교 (==는 메모리 번지(stack) 비교)                                                                       |
-| 문자열 내용<br>비교 | boolean     | equalsIgnoreCase(String anotherString)                            | 대소문자 구분 없이 문자열의 실제 내용 비교                                                                                   |
+| 문자열 내용 비교 | boolean     | equals()                                                          | 문자열의 실제 내용 비교 (==는 메모리 번지(stack) 비교)                                                                       |
+| 문자열 내용 비교 | boolean     | equalsIgnoreCase(String anotherString)                            | 대소문자 구분 없이 문자열의 실제 내용 비교                                                                                   |
 
 <br>
 • toLowerCase(): 영문 문자를 모두 소문자로 변환한다. <br>
