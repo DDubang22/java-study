@@ -730,7 +730,7 @@ a.print();               // 메서드 활용
 지역변수 : 메서드에 포함된 변수   
 
 큰 차이점은 __메모리의 위치__ 이다   
-필디는 힙 메모리의 객체내부, 지역변수는 스택 메모리에 생성된다.   
+필드는 힙 메모리의 객체내부, 지역변수는 스택 메모리에 생성된다.   
 스택메모리에 저장되는 변수는 JVM에 자동으로 관리하지만, 힙 메모리 객체안에 생성되는 필드는 객체가 사라지지 않는 한 절대 삭제되지 않는다.   
 
 또 다른 차이점은 필드와 지역 변수의 초깃값이다.   
@@ -740,7 +740,154 @@ a.print();               // 메서드 활용
 <br>
 <br>
 
-> 메서드
+> 메서드 : __클래스의 기능__   
+
+```
+자바 제어자 리턴(반환) 타입 메서드명(입력매개변수) {
+    메서드 내용
+}
+
+public static int sum(int a, int b){
+    //메서드 내용    
+}
+```   
+
+<br>
+
+> return type : void , no parameter
+
+```
+void print() {
+    System.out.println("안녕");
+}
+```
+
+> return type : int, no parameter
+
+```
+int data() {
+    return 3;
+}
+```
+
+> return type : double, two parameter
+
+```
+double sum(int a, double b) {
+    return a + b;
+}
+```
+
+> return type : void ,    
+return? what does it mean?
+
+```
+void print() {
+    System.out.print("hello");
+    return; // 메서드 종료
+}
+```
+
+<br>
+
+### 메서드 호출하기
+
+<br>
+
+> 클래스 외부에서 호출하기
+
+클래스 외부에서 메서드를 사용할려면 당연히 __객체__ 를 생성해야된다.   
+객체의 위치를 저장하고 있는 __참조 변수__ 를 통해 메서드를 호출해야된다.   
+
+> 클래스 내부에서 메서드 호출하기
+
+클래스 내부에 있는 메서드끼리는 객체를 생성하지않고 서로를 호출할 수 있다.   
+왜냐? 같은 멤버이기 때문이다.   
+다만 메서드 앞에 static이 있을때는 static이 붙은 필드 또는 메서드 끼리만 호출할 수 있다.   
+__같은 멤버끼리는 클래스 내부에서 얼마든지 객체를 생성하지 않고 서로를 호출할 수 있다__   
+
+
+> 오버로딩된 메서드
+
+메서드 오버로딩을 이해하기 위해서는 __메서드 시그니처__ 의미를 알아둬야 된다.   
+메서드 시그니처는 __메서드명__ 과 __입력매개변수__ 의 자료형을 말합니다.  
+이름에서도 유츄하듯이 메서드를 구분하는 기분 역할을 합니다.   
+JVM은 메서드 시그니처가 다르면 메서드 명이 동일해도 다른 메서드로 인식한다.   
+__메서드 오버로딩__ 이 이러한 특징을 이용한 것이다.   
+입력매개변수의 __개수__ 나 __자료형__ 이 다른 여러개의 동일 이름을 지닌 메서드가 같은 공간에 정의되는 것을 서술한다.   
+
+```
+public class Main {
+    public static void main(String[] args) {
+
+        print();
+        print(3);
+        print(5.7);
+        print(2, 5);
+    }
+    public static void print() {
+        System.out.println("데이터가 없습니다");
+    }
+
+    public static void print(int a) {
+        System.out.println(a);
+    }
+
+    public static void print(double a) {
+        System.out.println(a);
+    }
+
+    public static void print(int a, int b) {
+        System.out.println(a + " " + b);
+    }
+}
+```
+
+
+> 가변 길이 배열 입력매개변수 메서드
+
+어떤 메서드가 입력매개변수로 0~10로 int형으로 들어온다고 가정을 해보자.   
+정확히 몇 개가 들어올지 알 수 없기때문에 0 ~ 10개 ,즉 11개 메서드를 전부 오버로딩 해야한다.   
+개수 범위가 더 크면 더 많은 메서를 오버로딩을 해야한다. __불편하다 더 간편한 방법이 없을까?__   
+바로 __가변 길이 배열 입력매개변수__ 이다.   
+
+```
+리턴 타입 메서드명 (자료형... 참조 변수명){
+    ...
+}
+```
+
+```
+public class Main {
+    public static void main(String[] args) {
+
+        method(1);
+        method(1, 2);
+        method(1,2,3);
+    }
+
+    static void method(int... values) {
+        System.out.println("길이 = " + values.length);
+        for (int value : values) {
+            System.out.print(value + " ");
+        }
+        System.out.println();
+    }
+}
+
+길이 = 1
+1 
+길이 = 2
+1 2 
+길이 = 3
+1 2 3 
+```
+
+<br>
+
+### 생성자
+
+
 
 
 
